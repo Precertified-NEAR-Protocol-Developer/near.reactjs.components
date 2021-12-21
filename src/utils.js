@@ -1,21 +1,17 @@
-import getConfig from './config'
-import getNearWalletConnection from './near-wallet-connection'
-
-const nearConfig = getConfig(process.env.NODE_ENV || 'development')
-const configurator = getNearWalletConnection(nearConfig);
+import { nearWalletConnection } from './near-wallet-connection'
 
 export async function initContract() {
-  window.walletConnection = await configurator.getWalletConnection();
-  window.accountId = await configurator.getAccountId();
-  window.account = await configurator.getAccount();
-  window.contract = await configurator.getContract();
+  window.walletConnection = await nearWalletConnection.getWalletConnection();
+  window.accountId = await nearWalletConnection.getAccountId();
+  window.account = await nearWalletConnection.getAccount();
+  window.contract = await nearWalletConnection.getContract();
 }
 
 export async function logout() {
-  (await configurator.getWalletConnection()).signOut();
+  (await nearWalletConnection.getWalletConnection()).signOut();
   window.location.replace(window.location.origin + window.location.pathname)
 }
 
 export async function login() {
-  (await configurator.getWalletConnection()).requestSignIn('');
+  (await nearWalletConnection.getWalletConnection()).requestSignIn('');
 }
