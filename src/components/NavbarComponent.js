@@ -30,8 +30,4 @@ const NavbarComponent = props => {
     );
 };
 
-NavbarComponent.propTypes = {
-    
-};
-
 export default NavbarComponent;
