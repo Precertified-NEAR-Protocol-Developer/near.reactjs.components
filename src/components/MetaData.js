@@ -8,10 +8,7 @@ const MetaData = props => {
 
     useEffect(()=>{
         async function setData(){
-            console.log(nearWalletConnection);
-            const data = await nearWalletConnection.getAccountState();
-            console.log(data);
-            changeMetaData(data);
+            changeMetaData(await nearWalletConnection.getAccountState());
         }
         setData();
     }, []);
