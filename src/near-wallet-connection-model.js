@@ -15,12 +15,12 @@ export class NearWalletConnection {
     this.nearConfig = nearConfig;
   }
 
-   async getNearConnection() {
-        if(this.nearConnection === null) {
-            this.nearConnection = await initConnection(this.nearConfig);
-        }
-        return this.nearConnection;
-    }
+  async getNearConnection() {
+      if(this.nearConnection === null) {
+          this.nearConnection = await initConnection(this.nearConfig);
+      }
+      return this.nearConnection;
+  }
   
 
   async getWalletConnection() {
