@@ -8,13 +8,13 @@ import NavbarComponent from './components/NavbarComponent'
 export default function App() {
   return (
     <React.Fragment>
-    <NavbarComponent/>
-      {
-        (window.accountId==='') ?
-          'You cannot see MetaData associated with the account until you login.'
-          :
-          <MetaData/>
-      }
+      <NavbarComponent/>
+        {
+          (window.accountId==='') ?
+            'You cannot see MetaData associated with the account until you login.'
+            :
+            <MetaData/>
+        }
     </React.Fragment>
   );
 } 
