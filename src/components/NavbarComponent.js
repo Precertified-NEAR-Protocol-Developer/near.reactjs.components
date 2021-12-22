@@ -4,9 +4,11 @@ import {Navbar, Nav} from 'react-bootstrap';
 import 'regenerator-runtime/runtime'
 import { login, logout } from '../utils'
 import '../global.css'
+import { nearWalletConnection } from '../near-wallet-connection';
+
 
 const NavbarComponent = props => {
-    return (
+    return (        
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Navbar.Brand>React-Bootstrap</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -14,12 +16,12 @@ const NavbarComponent = props => {
                     <Nav className="me-auto"></Nav>
                     <Nav>                            
                         <Nav.Link onClick={
-                            (window.accountId==='') ?
+                            (nearWalletConnection.getAccountId()==='') ?
                             login :
                             logout
                         }>
                             {
-                                (window.accountId==='')?
+                                (nearWalletConnection.getAccountId()==='')?
                                 'Login' :
                                 'Logout'
                             }
